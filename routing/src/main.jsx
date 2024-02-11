@@ -1,11 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import Layout from "./Layout.jsx";
+import Home from './components/Home/Home.jsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter ([
   {
-    path: "/"
+    path: "/",
+    element: <Layout/>,
+    children: [
+      {path: "", 
+    element: <Home/>},
+    {}
+     
+    ]
   }
 ])
 
