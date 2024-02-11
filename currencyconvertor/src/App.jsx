@@ -38,8 +38,7 @@ function App() {
                     onSubmit={(e) => {
                         e.preventDefault();
                         convert()
-                       
-                    }}
+                       }}
                 >
                     <div className="w-full mb-1">
                         <InputBox
