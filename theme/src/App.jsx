@@ -1,20 +1,28 @@
-import { ThemeProvider } from './context/theme'
+
+import { useEffect, useState } from 'react'
 import './App.css'
-import { useState, useEffect } from 'react'
+import { ThemeProvider } from './context/theme'
+import ThemeBtn from './components/ThemeBtn'
+import Card from './components/Card'
 
 function App() {
-  const [themeMode, setThemeMode] = useState("light");
-  const lightTheme= () => {
+  const [themeMode, setThemeMode] = useState("light")
+
+  const lightTheme = () => {
     setThemeMode("light")
   }
+
   const darkTheme = () => {
     setThemeMode("dark")
   }
+
+  // actual change in theme
 
   useEffect(() => {
     document.querySelector('html').classList.remove("light", "dark")
     document.querySelector('html').classList.add(themeMode)
   }, [themeMode])
+  
 
   return (
     <ThemeProvider value={{themeMode, lightTheme, darkTheme}}>
@@ -32,6 +40,5 @@ function App() {
     </ThemeProvider>
   )
 }
-
 
 export default App
